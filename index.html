@@ -8,7 +8,7 @@
 <link rel="icon" href="assets/paws-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,500;1,9..144,700&family=Figtree:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,500;1,9..144,700&family=Figtree:wght@400;500;600;700&family=Caveat:wght@600;700&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600..800&display=swap" rel="stylesheet">
 <style>
 :root{
   --cream:#FAF3E8;
@@ -70,35 +70,55 @@ header.site.scrolled{border-color:var(--line);box-shadow:0 8px 30px -20px rgba(0
 .burger span::before,.burger span::after{content:"";position:absolute;left:0}
 .burger span::before{top:-6px}.burger span::after{top:6px}
 
-/* hero */
-.hero{position:relative;padding:70px 0 40px}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
-.hero h1{font-family:'Fraunces',serif;font-weight:800;font-size:clamp(2.9rem,6.4vw,5.6rem);line-height:.95;letter-spacing:-.035em;margin:22px 0 26px}
-.hero h1 em{font-style:italic;font-weight:500;color:var(--brown)}
-.hero h1 .u{position:relative;white-space:nowrap}
-.hero h1 .u svg{position:absolute;left:-2%;bottom:-.12em;width:104%;height:.32em;color:var(--sky)}
-.hero p.lead{font-size:1.15rem;color:var(--ink-2);max-width:500px}
-.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.note{display:flex;align-items:flex-end;gap:6px;margin-top:38px;color:var(--brown-2)}
-.note span{font-size:1.75rem;line-height:1;transform:rotate(-3deg)}
-.note svg{width:70px;height:70px;transform:translateY(22px)}
-
-.seal-stage{position:relative;aspect-ratio:1;width:min(520px,100%);margin-left:auto}
-.ring{position:absolute;inset:0;animation:spin 38s linear infinite}
-.ring text{font-family:'Figtree',sans-serif;font-weight:700;font-size:14.5px;letter-spacing:4.2px;fill:var(--ink);text-transform:uppercase}
-@keyframes spin{to{transform:rotate(360deg)}}
-.photo-circle{position:absolute;inset:11%;border-radius:50%;overflow:hidden;background:
-  radial-gradient(circle at 30% 30%,#F6E6CF 0,#E8CFAE 60%,#D9B88F 100%);box-shadow:inset 0 0 0 10px var(--paper),0 30px 60px -30px rgba(74,35,16,.55)}
-.photo-circle img{width:100%;height:100%;object-fit:cover}
-.photo-circle .fallback{position:absolute;inset:0;display:grid;place-items:center;color:rgba(74,35,16,.18)}
-.photo-circle .fallback svg{width:46%}
-.seal{position:absolute;width:38%;left:-6%;bottom:2%;border-radius:50%;background:#fff;padding:6px;box-shadow:0 22px 40px -18px rgba(0,0,0,.45);transform:rotate(-8deg);transition:transform .5s}
-.seal:hover{transform:rotate(4deg) scale(1.03)}
-.sticker{position:absolute;right:-2%;top:6%;background:var(--sky);color:#fff;border-radius:16px;padding:14px 16px;font-weight:700;font-size:.85rem;line-height:1.25;max-width:170px;transform:rotate(6deg);box-shadow:0 16px 30px -14px rgba(30,160,220,.8)}
-.sticker b{display:block;font-family:'Fraunces',serif;font-size:1.15rem}
+/* hero: welcome doormat on a clean floor */
+.hero{position:relative;padding:54px 0 0;overflow:hidden;background-color:#E8D2B2;
+  background-image:
+    linear-gradient(180deg,var(--cream) 0,rgba(250,243,232,.0) 140px),
+    linear-gradient(0deg,var(--cream) 0,rgba(250,243,232,0) 120px),
+    repeating-linear-gradient(90deg,rgba(110,60,25,.13) 0 1.5px,transparent 1.5px 180px),
+    linear-gradient(0deg,transparent 0 50%,rgba(110,60,25,.08) 50% calc(50% + 1.5px),transparent calc(50% + 1.5px)),
+    repeating-linear-gradient(90deg,#EAD5B6 0 180px,#E4CBA8 180px 360px,#EEDCC1 360px 540px,#E7D0AE 540px 720px)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 70% 10%,rgba(255,255,255,.55),transparent 70%);pointer-events:none}
+.hero-head{position:relative;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:46px}
+.hero-head .chip-open{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:1.5px solid var(--ink);border-radius:999px;padding:8px 16px;font-weight:700;font-size:.85rem}
+.mat-zone{position:relative;width:min(980px,100% - 120px);margin:0 auto 0 auto;left:60px}
+.print{position:absolute;z-index:5;left:-190px;top:-26px;width:250px;background:#fff;padding:10px 10px 0;border-radius:4px;transform:rotate(-8deg);box-shadow:0 34px 50px -24px rgba(50,25,8,.6);transition:transform .5s}
+.print:hover{transform:rotate(-3deg) translateY(-6px)}
+.print img{aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:2px}
+.print figcaption{font-family:'Caveat',cursive;font-size:1.45rem;color:var(--brown-2);text-align:center;padding:6px 0 10px;line-height:1.1}
+.print .tape{position:absolute;top:-13px;left:50%;width:84px;height:26px;background:rgba(250,243,232,.85);transform:translateX(-50%) rotate(5deg);box-shadow:0 2px 4px rgba(0,0,0,.12)}
+.mat{position:relative;aspect-ratio:2.15/1;border-radius:20px;background-color:#B9773D;
+  background-image:repeating-linear-gradient(0deg,rgba(60,25,5,.10) 0 2px,transparent 2px 5px),repeating-linear-gradient(90deg,rgba(255,225,180,.12) 0 1px,transparent 1px 4px);
+  box-shadow:0 60px 80px -45px rgba(60,28,8,.75),0 6px 0 #8E5223,inset 0 0 0 16px #5A2D13,inset 0 0 0 20px #B9773D,inset 0 0 0 23px rgba(50,22,6,.55);
+  transform:rotate(-1.6deg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4% 6% 13%;overflow:hidden;isolation:isolate}
+.mat::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;mix-blend-mode:multiply;opacity:.55;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .2 0 0 0 0 .08 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.mat::after{content:"";position:absolute;top:-20%;bottom:-20%;width:38%;left:-45%;z-index:3;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,250,235,.0) 20%,rgba(255,250,235,.55) 50%,rgba(255,250,235,0) 80%,transparent);transform:skewX(-14deg);animation:wipe 10s cubic-bezier(.6,0,.3,1) infinite}
+@keyframes wipe{0%,52%{left:-45%}70%,100%{left:120%}}
+.mat .kick{position:relative;z-index:1;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;letter-spacing:.38em;text-transform:uppercase;color:#3B1A08;font-size:clamp(.7rem,1.5vw,1.05rem);opacity:.85;margin-bottom:.6em}
+.mat h1{max-width:100%;position:relative;z-index:1;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-stretch:75%;font-variation-settings:"wdth" 75;text-transform:uppercase;color:#3B1A08;line-height:.82;letter-spacing:-.01em;text-align:center}
+.mat h1 .w{display:block;font-size:clamp(4.2rem,15.5vw,13.5rem);white-space:nowrap}
+.mat h1 .s{display:block;white-space:nowrap;font-size:clamp(1.05rem,3.3vw,2.9rem);letter-spacing:.06em;margin-top:.35em;font-weight:700}
+.mat h1 .s em{font-family:'Fraunces',serif;font-style:italic;text-transform:none;font-weight:600;letter-spacing:0;color:#FFF3E0;font-size:1.12em}
+.prints{position:absolute;inset:0;z-index:1;pointer-events:none}
+.prints svg{position:absolute;width:clamp(18px,3.2vw,34px);height:clamp(18px,3.2vw,34px);fill:#3A1F0E;opacity:0;animation:step 10s infinite;animation-delay:calc(var(--i)*.28s)}
+@keyframes step{0%{opacity:0;transform:var(--r) scale(.6)}3%{opacity:.62;transform:var(--r) scale(1)}50%{opacity:.62;transform:var(--r) scale(1)}62%,100%{opacity:0;transform:var(--r) scale(1)}}
+.tag-seal{position:absolute;z-index:4;top:-48px;right:-34px;width:clamp(96px,16vw,176px);border-radius:50%;background:#fff;padding:6px;box-shadow:0 24px 40px -18px rgba(0,0,0,.5);transform:rotate(9deg);transition:transform .5s}
+.tag-seal:hover{transform:rotate(-4deg) scale(1.05)}
+.gift-note{position:absolute;z-index:4;right:6%;bottom:-36px;background:var(--sky);color:#fff;border-radius:14px;padding:14px 18px;font-weight:700;font-size:.85rem;line-height:1.25;transform:rotate(-5deg);box-shadow:0 18px 30px -14px rgba(30,160,220,.85)}
+.gift-note b{display:block;font-family:'Fraunces',serif;font-size:1.15rem}
+.spark{position:absolute;z-index:4;color:#fff;width:26px;height:26px;animation:twinkle 3s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.4) rotate(0)}50%{opacity:1;transform:scale(1) rotate(45deg)}}
+.hero-foot{position:relative;display:grid;grid-template-columns:1fr auto 1fr;gap:30px;align-items:center;padding:78px 0 70px}
+.hero-foot .lead{font-size:1.12rem;color:var(--ink-2);max-width:380px}
+.hero-foot .actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.hero-foot .note{justify-self:end;display:flex;align-items:center;gap:4px;color:var(--brown-2)}
+.hero-foot .note span{font-size:1.7rem;line-height:1.05;transform:rotate(-3deg);text-align:right;max-width:240px}
+.hero-foot .note svg{width:60px;height:60px}
 
 /* marquee */
-.marquee{border-block:1.5px solid var(--ink);background:var(--paper);overflow:hidden;margin-top:56px}
+.marquee{border-block:1.5px solid var(--ink);background:var(--paper);overflow:hidden;position:relative}
 .marquee .track{display:flex;width:max-content;animation:slide 30s linear infinite}
 .marquee span{display:flex;align-items:center;gap:26px;padding:18px 26px;font-family:'Fraunces',serif;font-size:1.6rem;font-weight:600;white-space:nowrap}
 .marquee span i{font-style:italic;font-weight:500;color:var(--brown)}
@@ -173,7 +193,7 @@ header.site.scrolled{border-color:var(--line);box-shadow:0 8px 30px -20px rgba(0
 .voucher .stub small{font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 
 /* contact */
-.contact{padding:30px 0 120px}
+.contact{padding:30px 0 110px}
 .contact-box{display:grid;grid-template-columns:1.25fr .75fr;border-radius:32px;overflow:hidden;background:var(--paper);box-shadow:0 0 0 1.5px var(--ink)}
 .form-side{padding:56px 54px}
 .form-side .sec-title{margin-bottom:10px}
@@ -208,8 +228,28 @@ form .btn{width:100%;justify-content:center;font-size:1.02rem;padding:18px}
 .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:10px 16px;font-size:.85rem;font-weight:700;color:#fff;transition:background .2s,color .2s}
 .chip:hover{background:#fff;color:var(--ink)}
 .chip svg{width:16px;height:16px}
-.map{margin-top:28px;border-radius:24px;overflow:hidden;box-shadow:0 0 0 1.5px var(--ink);height:300px;filter:sepia(.25) saturate(.9)}
-.map iframe{width:100%;height:100%;border:0}
+
+/* map section */
+.locate{padding:0 0 120px}
+.locate-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+.locate-head .sec-title{margin-bottom:0}
+.map-stage{position:relative;width:min(1300px,100% - 48px);margin:0 auto;height:560px;border-radius:36px;overflow:hidden;box-shadow:0 0 0 1.5px var(--ink),0 40px 70px -45px rgba(60,28,8,.6);background:#E8D2B2 radial-gradient(rgba(74,35,16,.12) 1.2px,transparent 1.3px) 0 0/20px 20px}
+.map-stage iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:sepia(.3) saturate(.85) contrast(1.02)}
+.map-card{position:absolute;left:34px;top:34px;width:380px;background:var(--ink);color:#EADCC8;border-radius:26px;padding:34px 30px;display:flex;flex-direction:column;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.map-card img{width:84px;background:#fff;border-radius:50%;padding:3px;margin-bottom:20px}
+.map-card h3{font-family:'Fraunces',serif;font-size:1.7rem;color:#fff;line-height:1.05;font-weight:600}
+.map-card .loc{color:#F0A36B;font-weight:700;margin:6px 0 22px}
+.map-card ul{list-style:none;display:grid;gap:14px;border-top:1px solid rgba(255,255,255,.12);padding-top:20px}
+.map-card small{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#A8957F;font-weight:700}
+.map-card li a,.map-card li span{color:#fff;font-weight:600;font-size:.95rem;overflow-wrap:anywhere}
+.map-card li a:hover{color:#F0A36B}
+.open-row{display:flex;align-items:center;gap:8px}
+.map-dir{margin-top:26px;display:flex;justify-content:space-between;align-items:center;background:var(--brown);color:#fff;border-radius:16px;padding:16px 20px;font-weight:700;transition:background .2s}
+.map-dir:hover{background:#D06C26}
+.map-dir span{font-size:1.2rem}
+.area-pins{position:absolute;right:28px;bottom:28px;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;max-width:50%}
+.area-pins span{background:var(--paper);border:1.5px solid var(--ink);border-radius:999px;padding:8px 14px;font-weight:700;font-size:.82rem;display:inline-flex;align-items:center;gap:6px;box-shadow:0 10px 20px -12px rgba(0,0,0,.4)}
+.area-pins span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--brown)}
 
 /* footer */
 footer{background:var(--ink);color:#CDBBA6;padding:80px 0 0;position:relative;overflow:hidden}
@@ -230,7 +270,13 @@ footer ul a:hover{color:#F0A36B}
 .d1s{transition-delay:.1s}.d2s{transition-delay:.2s}.d3s{transition-delay:.3s}
 
 /* responsive */
+@media (min-width:961px) and (max-width:1360px){
+  .mat-zone{width:calc(100% - 150px);left:115px}
+  .print{width:185px;left:-140px}
+}
 @media (max-width:1300px){
+  .nav .btn{margin-left:auto}
+  .tag-seal{right:-14px}
   .menu{display:none}
   .burger{display:flex}
   .menu.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--paper);padding:14px 24px 24px;border-bottom:1.5px solid var(--ink)}
@@ -238,7 +284,13 @@ footer ul a:hover{color:#F0A36B}
 }
 @media (max-width:960px){
   .hero-grid,.areas-grid,.certs .wrap,.gift .wrap,.contact-box,.foot-top{grid-template-columns:1fr}
-  .seal-stage{margin:20px auto 0}
+  .mat-zone{width:100%;left:0}
+  .print{position:relative;left:auto;top:auto;width:min(300px,72%);margin:70px auto 0;display:block}
+  .gift-note{bottom:auto;top:calc((100vw - 48px)/2.15 - 20px)}
+  .spark:nth-of-type(n+2){display:none}
+  .hero-foot{grid-template-columns:1fr;justify-items:center;text-align:center;gap:22px;padding:70px 0 56px}
+  .hero-foot .note{justify-self:center}
+  .hero-foot .note span{text-align:center}
   .areas-head{position:static}
   .docs{height:600px;max-width:520px;width:100%;margin:0 auto}
   .gift .wrap>div:first-child{order:2}
@@ -263,11 +315,21 @@ footer ul a:hover{color:#F0A36B}
   .docs{height:470px}
   .doc{width:64%}
   .doc.d2{top:60px}
-  .seal-stage{width:92%}
-  .seal{left:-2%}
-  .sticker{right:0;top:0;font-size:.78rem;padding:10px 12px}
-  .note span{font-size:1.45rem}
+  .mat{aspect-ratio:1.15/1;padding:8% 6% 22%;transform:rotate(-1deg)}
+  .mat h1 .w{font-size:clamp(3.6rem,22vw,6rem)}
+  .mat h1 .s{font-size:clamp(1rem,5vw,1.4rem)}
+  .mat .kick{letter-spacing:.18em;text-align:center;font-size:.66rem}
+  .tag-seal{top:-34px;right:-8px}
+  .gift-note{right:-4px;top:calc((100vw - 32px)/1.15 - 24px);font-size:.75rem;padding:10px 12px}
+  .hero-head{justify-content:center;margin-bottom:44px}
+  .hero{padding-top:36px}
   .areas,.certs,.gift{padding:80px 0}
+  .map-stage{height:auto;display:flex;flex-direction:column;border-radius:26px;width:calc(100% - 32px)}
+  .map-stage iframe{position:relative;height:340px;order:2}
+  .map-card{position:relative;inset:auto;width:auto;border-radius:0;order:1}
+  .locate-head .btn{display:none}
+  .area-pins{position:relative;right:auto;bottom:auto;max-width:none;justify-content:flex-start;padding:16px;order:3;background:var(--paper)}
+  .locate{padding-bottom:80px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
@@ -310,35 +372,54 @@ footer ul a:hover{color:#F0A36B}
 <main>
   <!-- HERO -->
   <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="eyebrow rv">Calgary, Alberta, Canada</span>
-        <h1 class="rv d1s">Welcome to <em>Paws</em> <span class="u">Cleaning<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M3 14C60 5 150 3 297 9" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/></svg></span> Services</h1>
-        <p class="lead rv d2s">We love our clients, so feel free to fill out the contact form and I will get back to you with a quote.</p>
-        <div class="actions rv d3s">
+    <div class="wrap">
+      <div class="hero-head rv">
+        <span class="eyebrow">Calgary, Alberta, Canada</span>
+        <span class="chip-open"><span class="dot"></span>Open today 09:00 a.m. – 06:00 p.m.</span>
+      </div>
+
+      <div class="mat-zone rv d1s">
+        <div class="mat">
+          <span class="kick">Fill out the form below to contact me</span>
+          <h1><span class="w">Welcome</span><span class="s">to <em>Paws</em> Cleaning Services</span></h1>
+          <div class="prints" aria-hidden="true">
+            <svg style="--i:0;left:4%;top:84%;--r:rotate(70deg)"><use href="#paw"/></svg>
+            <svg style="--i:1;left:10%;top:74%;--r:rotate(70deg)"><use href="#paw"/></svg>
+            <svg style="--i:2;left:17%;top:85%;--r:rotate(72deg)"><use href="#paw"/></svg>
+            <svg style="--i:3;left:24%;top:75%;--r:rotate(72deg)"><use href="#paw"/></svg>
+            <svg style="--i:4;left:31%;top:86%;--r:rotate(76deg)"><use href="#paw"/></svg>
+            <svg style="--i:5;left:38%;top:76%;--r:rotate(76deg)"><use href="#paw"/></svg>
+            <svg style="--i:6;left:45%;top:87%;--r:rotate(80deg)"><use href="#paw"/></svg>
+            <svg style="--i:7;left:52%;top:77%;--r:rotate(80deg)"><use href="#paw"/></svg>
+            <svg style="--i:8;left:59%;top:86%;--r:rotate(76deg)"><use href="#paw"/></svg>
+            <svg style="--i:9;left:66%;top:75%;--r:rotate(76deg)"><use href="#paw"/></svg>
+            <svg style="--i:10;left:73%;top:85%;--r:rotate(76deg)"><use href="#paw"/></svg>
+            <svg style="--i:11;left:80%;top:75%;--r:rotate(74deg)"><use href="#paw"/></svg>
+            <svg style="--i:12;left:86%;top:86%;--r:rotate(72deg)"><use href="#paw"/></svg>
+            <svg style="--i:13;left:92%;top:76%;--r:rotate(70deg)"><use href="#paw"/></svg>
+          </div>
+        </div>
+        <figure class="print"><span class="tape"></span><img src="images/hero-home.jpg" alt="Bright, freshly cleaned living room with a dog relaxing on the rug"><figcaption>Calgary &amp; Area</figcaption></figure>
+        <img class="tag-seal" src="assets/paws-logo.png" alt="Paws Cleaning Services logo">
+        <div class="gift-note"><b>Gift Certificate</b>available upon request</div>
+        <svg class="spark" style="left:30%;top:-14px;animation-delay:.4s" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+        <svg class="spark" style="right:22%;bottom:-18px;animation-delay:1.6s" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+        <svg class="spark" style="left:-14px;top:30%;animation-delay:2.4s;width:18px;height:18px" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4z"/></svg>
+      </div>
+
+      <div class="hero-foot">
+        <p class="lead rv">We love our clients, so feel free to fill out the contact form and I will get back to you with a quote.</p>
+        <div class="actions rv d1s">
           <a href="#contact" class="btn btn-brown">Book with us today
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a href="tel:4033999620" class="btn btn-line">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
             403-399-9620</a>
         </div>
-        <div class="note rv d3s">
-          <span class="hand">Fill out the form below to contact me</span>
-          <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M8 8c30 4 46 22 44 56"/><path d="M40 54l12 12 10-15"/></svg>
+        <div class="note rv d2s">
+          <span class="hand">We are here to help</span>
+          <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M10 10c30 4 46 22 44 56"/><path d="M42 54l12 12 10-15"/></svg>
         </div>
-      </div>
-
-      <div class="seal-stage rv d2s">
-        <svg class="ring" viewBox="0 0 500 500" aria-hidden="true">
-          <defs><path id="circ" d="M250,250 m-232,0 a232,232 0 1,1 464,0 a232,232 0 1,1 -464,0"/></defs>
-          <text><textPath href="#circ" textLength="1452" lengthAdjust="spacing">Calgary &amp; Area ✦ DeWinton ✦ Chestermere ✦ Okotoks ✦ Calgary &amp; Area ✦ DeWinton ✦ Chestermere ✦ Okotoks ✦</textPath></text>
-        </svg>
-        <div class="photo-circle">
-          <div class="fallback"><svg viewBox="0 0 64 64" fill="currentColor"><use href="#paw"/></svg></div>
-          <img src="images/hero-home.jpg" alt="Freshly cleaned, bright living room in a Calgary home" onerror="this.remove()">
-        </div>
-        <img class="seal" src="assets/paws-logo.png" alt="Paws Cleaning Services seal">
-        <div class="sticker"><b>Gift Certificate</b>available upon request</div>
       </div>
     </div>
 
@@ -463,7 +544,34 @@ footer ul a:hover{color:#F0A36B}
           </div>
         </aside>
       </div>
-      <div class="map rv"><iframe title="Map of Calgary, Alberta" loading="lazy" src="https://maps.google.com/maps?q=Calgary,%20Alberta,%20Canada&z=11&output=embed"></iframe></div>
+    </div>
+  </section>
+  <!-- MAP -->
+  <section class="locate" id="map">
+    <div class="wrap locate-head rv">
+      <div>
+        <span class="eyebrow">Paws Cleaning Services</span>
+        <h2 class="sec-title">Calgary, Alberta, <em>Canada</em></h2>
+      </div>
+      <a href="https://maps.google.com/maps?q=Calgary,+Alberta,+Canada" target="_blank" rel="noopener" class="btn btn-brown">Get directions
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></a>
+    </div>
+    <div class="map-stage rv">
+      <iframe title="Map of Paws Cleaning Services, Calgary, Alberta" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Calgary,%20Alberta,%20Canada&z=11&output=embed"></iframe>
+      <div class="map-card">
+        <img src="assets/paws-logo.png" alt="">
+        <h3>Paws Cleaning Services</h3>
+        <p class="loc">Calgary, Alberta, Canada</p>
+        <ul>
+          <li><small>Business number</small><a href="tel:4033999620">403-399-9620</a></li>
+          <li><small>Email</small><a href="mailto:Pawscleaningservices2022@gmail.com">Pawscleaningservices2022@gmail.com</a></li>
+          <li><small>Hours</small><span class="open-row"><span class="dot"></span>Open today 09:00 a.m. – 06:00 p.m.</span></li>
+        </ul>
+        <a href="https://maps.google.com/maps?q=Calgary,+Alberta,+Canada" target="_blank" rel="noopener" class="map-dir">Get directions <span>&rarr;</span></a>
+      </div>
+      <div class="area-pins" aria-hidden="true">
+        <span>Calgary &amp; Area</span><span>DeWinton</span><span>Chestermere</span><span>Okotoks</span>
+      </div>
     </div>
   </section>
 </main>
@@ -507,6 +615,15 @@ footer ul a:hover{color:#F0A36B}
 
 <script>
   document.getElementById('yr').textContent=new Date().getFullYear();
+  // fit the doormat headline to the mat whatever the font metrics
+  const mat=document.querySelector('.mat');
+  function fitMat(){
+    const w=mat.querySelector('h1 .w'), sub=mat.querySelector('h1 .s');
+    [w,sub].forEach(el=>el.style.fontSize='');
+    const room=mat.clientWidth*0.86;
+    [[w,1],[sub,0.94]].forEach(([el,k])=>{const cur=parseFloat(getComputedStyle(el).fontSize);if(el.scrollWidth>room*k)el.style.fontSize=(cur*room*k/el.scrollWidth)+'px'});
+  }
+  fitMat(); addEventListener('resize',fitMat); document.fonts&&document.fonts.ready.then(fitMat);
   const hdr=document.querySelector('header.site');
   addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>10),{passive:true});
   const menu=document.getElementById('menu');
